@@ -1,4 +1,4 @@
-# Data-Staging-Pipeline
+# ETL-Process-SSIS
 
 This repository contains a data staging pipeline implemented using SQL Server Integration Services (SSIS). It prepares data for analytical and reporting purposes through data extraction, transformation, and loading into a staging area.
 
