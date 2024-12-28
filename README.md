@@ -8,34 +8,47 @@ This repository contains a data staging pipeline implemented using SQL Server In
 *   **Data Extraction:** Extracts data from AdventureWorks2022 dataset.
 *   **Transformation Logic:** Applies necessary transformations to prepare data for analysis.
 *   **Staging Area:** Loads transformed data into a designated staging area.
-
+*   **DWH Conversion:** Converts data from the staging area (STG) to the Data Warehouse (DWH) format.
+  
 1. Extract Phase: From src (AdventureWorks2022) → To ods
    
 **Control flow**:
 
-![image](https://github.com/user-attachments/assets/fa1b6a7a-4b6d-4641-8c26-6359f6baad4e)
+![image](https://github.com/user-attachments/assets/7375f839-02b5-4378-b47e-15b3c08af0b3)
 
 
-**Data Flow**:
+**Data flow**:
 
-![image](https://github.com/user-attachments/assets/6e1264b6-7945-4deb-9610-89f3516d5d0c)
-![image](https://github.com/user-attachments/assets/f8447650-40f0-4d12-82c3-bad4ccfe389b)
-![image](https://github.com/user-attachments/assets/5330c029-39bf-4cf3-89ee-96429ec2b4d6)
+![image](https://github.com/user-attachments/assets/319605ae-c669-4a16-81c0-1f5b64ad957d)
+![image](https://github.com/user-attachments/assets/f35e0864-530a-4cd9-b36b-1f0be8056d03)
+![image](https://github.com/user-attachments/assets/4c090b0e-2e5b-492c-ab47-6e4e7c0762c6)
+![image](https://github.com/user-attachments/assets/6b5ed32c-cf05-4b69-9c27-33bc9610e36b)
+![image](https://github.com/user-attachments/assets/10f3d624-cd01-4555-9d58-fa284e1a2154)
+![image](https://github.com/user-attachments/assets/87e437ee-9b9e-4fcc-957c-8ec6d36c845a)
+
 
 
 2. Transform Phase: From ODS database → to STG database.
    
 **Control flow**:
 
-![image](https://github.com/user-attachments/assets/ab5888c4-c7d0-42b4-888b-19d0d5bf0040)
+![image](https://github.com/user-attachments/assets/92b7f75c-227f-400d-8f24-68e0b5aeffd9)
 
 
-**Data Flow**:
 
-![image](https://github.com/user-attachments/assets/2eb0442d-e581-40c7-8167-2f59f30ddead)
+**Data flow**:
+
+![image](https://github.com/user-attachments/assets/8b113bc0-5d82-4d1a-99c2-15c7287f4157)
+
 
 3. Load Phase: From STG database → to DWH database.
+   
+**Control flow**:
 
-**Current Status:**
-The data extraction, transformation, and loading into the staging area are complete. Further work is in progress on the final step *after* the staging process.
+![image](https://github.com/user-attachments/assets/9f4d45e9-cfe3-41b7-97d5-e9e502c72b23)
+
+
+**Data flow**:
+
+![image](https://github.com/user-attachments/assets/f115f7dd-dd50-42aa-858d-858b0be02c87)
 
