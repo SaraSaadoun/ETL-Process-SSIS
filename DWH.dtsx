@@ -1,0 +1,767 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/28/2024 9:20:33 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-SARA"
+  DTS:CreatorName="DESKTOP-SARA\islam"
+  DTS:DTSID="{2CA3E97F-9F84-4335-A341-B34D96A3D2BB}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="DWH"
+  DTS:PackageType="5"
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{16687D09-E42B-46DB-A7AC-B57B6FF366C6}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DWH Data Flow"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{3B5E0AB9-ABA5-49F3-A612-962BE31B802E}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DWH Data Flow"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DWH Data Flow\Person_dim_DWH"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Person_dim_DWH"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Person_dim_DWH]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DWH Data Flow\Person_dim_DWH.Connections[OleDbConnection]"
+                  connectionManagerID="{B792B084-545F-4CDD-92C0-3E635BD70CFD}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-SARA_MSSQLSERVER01.DWH_self]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DWH Data Flow\Person_dim_DWH.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DWH Data Flow\Person_dim_DWH.Inputs[OLE DB Destination Input].Columns[BusinessEntityID]"
+                      cachedDataType="i4"
+                      cachedName="BusinessEntityID"
+                      externalMetadataColumnId="Package\DWH Data Flow\Person_dim_DWH.Inputs[OLE DB Destination Input].ExternalColumns[BusinessEntityID]"
+                      lineageId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].Columns[BusinessEntityID]" />
+                    <inputColumn
+                      refId="Package\DWH Data Flow\Person_dim_DWH.Inputs[OLE DB Destination Input].Columns[Title]"
+                      cachedDataType="wstr"
+                      cachedLength="8"
+                      cachedName="Title"
+                      externalMetadataColumnId="Package\DWH Data Flow\Person_dim_DWH.Inputs[OLE DB Destination Input].ExternalColumns[Title]"
+                      lineageId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].Columns[Title]" />
+                    <inputColumn
+                      refId="Package\DWH Data Flow\Person_dim_DWH.Inputs[OLE DB Destination Input].Columns[PersonType]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="PersonType"
+                      externalMetadataColumnId="Package\DWH Data Flow\Person_dim_DWH.Inputs[OLE DB Destination Input].ExternalColumns[PersonType]"
+                      lineageId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].Columns[PersonType]" />
+                    <inputColumn
+                      refId="Package\DWH Data Flow\Person_dim_DWH.Inputs[OLE DB Destination Input].Columns[FullName]"
+                      cachedDataType="wstr"
+                      cachedLength="152"
+                      cachedName="FullName"
+                      externalMetadataColumnId="Package\DWH Data Flow\Person_dim_DWH.Inputs[OLE DB Destination Input].ExternalColumns[FullName]"
+                      lineageId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].Columns[FullName]" />
+                    <inputColumn
+                      refId="Package\DWH Data Flow\Person_dim_DWH.Inputs[OLE DB Destination Input].Columns[AddressID]"
+                      cachedDataType="i4"
+                      cachedName="AddressID"
+                      externalMetadataColumnId="Package\DWH Data Flow\Person_dim_DWH.Inputs[OLE DB Destination Input].ExternalColumns[AddressID]"
+                      lineageId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].Columns[AddressID]" />
+                    <inputColumn
+                      refId="Package\DWH Data Flow\Person_dim_DWH.Inputs[OLE DB Destination Input].Columns[AddressTypeID]"
+                      cachedDataType="i4"
+                      cachedName="AddressTypeID"
+                      externalMetadataColumnId="Package\DWH Data Flow\Person_dim_DWH.Inputs[OLE DB Destination Input].ExternalColumns[AddressTypeID]"
+                      lineageId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].Columns[AddressTypeID]" />
+                    <inputColumn
+                      refId="Package\DWH Data Flow\Person_dim_DWH.Inputs[OLE DB Destination Input].Columns[AddressLine1]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="AddressLine1"
+                      externalMetadataColumnId="Package\DWH Data Flow\Person_dim_DWH.Inputs[OLE DB Destination Input].ExternalColumns[AddressLine1]"
+                      lineageId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].Columns[AddressLine1]" />
+                    <inputColumn
+                      refId="Package\DWH Data Flow\Person_dim_DWH.Inputs[OLE DB Destination Input].Columns[AddressLine2]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="AddressLine2"
+                      externalMetadataColumnId="Package\DWH Data Flow\Person_dim_DWH.Inputs[OLE DB Destination Input].ExternalColumns[AddressLine2]"
+                      lineageId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].Columns[AddressLine2]" />
+                    <inputColumn
+                      refId="Package\DWH Data Flow\Person_dim_DWH.Inputs[OLE DB Destination Input].Columns[City]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="City"
+                      externalMetadataColumnId="Package\DWH Data Flow\Person_dim_DWH.Inputs[OLE DB Destination Input].ExternalColumns[City]"
+                      lineageId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].Columns[City]" />
+                    <inputColumn
+                      refId="Package\DWH Data Flow\Person_dim_DWH.Inputs[OLE DB Destination Input].Columns[PostalCode]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="PostalCode"
+                      externalMetadataColumnId="Package\DWH Data Flow\Person_dim_DWH.Inputs[OLE DB Destination Input].ExternalColumns[PostalCode]"
+                      lineageId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].Columns[PostalCode]" />
+                    <inputColumn
+                      refId="Package\DWH Data Flow\Person_dim_DWH.Inputs[OLE DB Destination Input].Columns[AddressTypeName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="AddressTypeName"
+                      externalMetadataColumnId="Package\DWH Data Flow\Person_dim_DWH.Inputs[OLE DB Destination Input].ExternalColumns[AddressTypeName]"
+                      lineageId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].Columns[AddressTypeName]" />
+                    <inputColumn
+                      refId="Package\DWH Data Flow\Person_dim_DWH.Inputs[OLE DB Destination Input].Columns[PhoneNumber]"
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="PhoneNumber"
+                      externalMetadataColumnId="Package\DWH Data Flow\Person_dim_DWH.Inputs[OLE DB Destination Input].ExternalColumns[PhoneNumber]"
+                      lineageId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].Columns[PhoneNumber]" />
+                    <inputColumn
+                      refId="Package\DWH Data Flow\Person_dim_DWH.Inputs[OLE DB Destination Input].Columns[PhoneNumberTypeID]"
+                      cachedDataType="i4"
+                      cachedName="PhoneNumberTypeID"
+                      externalMetadataColumnId="Package\DWH Data Flow\Person_dim_DWH.Inputs[OLE DB Destination Input].ExternalColumns[PhoneNumberTypeID]"
+                      lineageId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].Columns[PhoneNumberTypeID]" />
+                    <inputColumn
+                      refId="Package\DWH Data Flow\Person_dim_DWH.Inputs[OLE DB Destination Input].Columns[PhoneNumberTypeName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="PhoneNumberTypeName"
+                      externalMetadataColumnId="Package\DWH Data Flow\Person_dim_DWH.Inputs[OLE DB Destination Input].ExternalColumns[PhoneNumberTypeName]"
+                      lineageId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].Columns[PhoneNumberTypeName]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DWH Data Flow\Person_dim_DWH.Inputs[OLE DB Destination Input].ExternalColumns[PersonSRKey]"
+                      dataType="i4"
+                      name="PersonSRKey" />
+                    <externalMetadataColumn
+                      refId="Package\DWH Data Flow\Person_dim_DWH.Inputs[OLE DB Destination Input].ExternalColumns[BusinessEntityID]"
+                      dataType="i4"
+                      name="BusinessEntityID" />
+                    <externalMetadataColumn
+                      refId="Package\DWH Data Flow\Person_dim_DWH.Inputs[OLE DB Destination Input].ExternalColumns[Title]"
+                      dataType="wstr"
+                      length="8"
+                      name="Title" />
+                    <externalMetadataColumn
+                      refId="Package\DWH Data Flow\Person_dim_DWH.Inputs[OLE DB Destination Input].ExternalColumns[PersonType]"
+                      dataType="wstr"
+                      length="2"
+                      name="PersonType" />
+                    <externalMetadataColumn
+                      refId="Package\DWH Data Flow\Person_dim_DWH.Inputs[OLE DB Destination Input].ExternalColumns[FullName]"
+                      dataType="wstr"
+                      length="152"
+                      name="FullName" />
+                    <externalMetadataColumn
+                      refId="Package\DWH Data Flow\Person_dim_DWH.Inputs[OLE DB Destination Input].ExternalColumns[AddressID]"
+                      dataType="i4"
+                      name="AddressID" />
+                    <externalMetadataColumn
+                      refId="Package\DWH Data Flow\Person_dim_DWH.Inputs[OLE DB Destination Input].ExternalColumns[AddressTypeID]"
+                      dataType="i4"
+                      name="AddressTypeID" />
+                    <externalMetadataColumn
+                      refId="Package\DWH Data Flow\Person_dim_DWH.Inputs[OLE DB Destination Input].ExternalColumns[AddressLine1]"
+                      dataType="wstr"
+                      length="60"
+                      name="AddressLine1" />
+                    <externalMetadataColumn
+                      refId="Package\DWH Data Flow\Person_dim_DWH.Inputs[OLE DB Destination Input].ExternalColumns[AddressLine2]"
+                      dataType="wstr"
+                      length="60"
+                      name="AddressLine2" />
+                    <externalMetadataColumn
+                      refId="Package\DWH Data Flow\Person_dim_DWH.Inputs[OLE DB Destination Input].ExternalColumns[City]"
+                      dataType="wstr"
+                      length="30"
+                      name="City" />
+                    <externalMetadataColumn
+                      refId="Package\DWH Data Flow\Person_dim_DWH.Inputs[OLE DB Destination Input].ExternalColumns[PostalCode]"
+                      dataType="wstr"
+                      length="15"
+                      name="PostalCode" />
+                    <externalMetadataColumn
+                      refId="Package\DWH Data Flow\Person_dim_DWH.Inputs[OLE DB Destination Input].ExternalColumns[AddressTypeName]"
+                      dataType="wstr"
+                      length="50"
+                      name="AddressTypeName" />
+                    <externalMetadataColumn
+                      refId="Package\DWH Data Flow\Person_dim_DWH.Inputs[OLE DB Destination Input].ExternalColumns[PhoneNumber]"
+                      dataType="wstr"
+                      length="25"
+                      name="PhoneNumber" />
+                    <externalMetadataColumn
+                      refId="Package\DWH Data Flow\Person_dim_DWH.Inputs[OLE DB Destination Input].ExternalColumns[PhoneNumberTypeID]"
+                      dataType="i4"
+                      name="PhoneNumberTypeID" />
+                    <externalMetadataColumn
+                      refId="Package\DWH Data Flow\Person_dim_DWH.Inputs[OLE DB Destination Input].ExternalColumns[PhoneNumberTypeName]"
+                      dataType="wstr"
+                      length="50"
+                      name="PhoneNumberTypeName" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DWH Data Flow\Person_dim_DWH.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DWH Data Flow\Person_dim_DWH.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DWH Data Flow\Person_dim_DWH.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DWH Data Flow\Person_dim_DWH.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DWH Data Flow\Person_dim_DWH.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DWH Data Flow\Person_dim_DWH.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DWH Data Flow\Person_dim_STG"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Person_dim_STG"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Person_dim_STG]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DWH Data Flow\Person_dim_STG.Connections[OleDbConnection]"
+                  connectionManagerID="{B1BF21B9-158E-433D-ADA3-DE2BE56562BE}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DESKTOP-SARA_MSSQLSERVER01.STG_self]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].Columns[BusinessEntityID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].ExternalColumns[BusinessEntityID]"
+                      lineageId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].Columns[BusinessEntityID]"
+                      name="BusinessEntityID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].Columns[Title]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].ExternalColumns[Title]"
+                      length="8"
+                      lineageId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].Columns[Title]"
+                      name="Title"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].Columns[PersonType]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].ExternalColumns[PersonType]"
+                      length="2"
+                      lineageId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].Columns[PersonType]"
+                      name="PersonType"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].Columns[FullName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].ExternalColumns[FullName]"
+                      length="152"
+                      lineageId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].Columns[FullName]"
+                      name="FullName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].Columns[AddressID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].ExternalColumns[AddressID]"
+                      lineageId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].Columns[AddressID]"
+                      name="AddressID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].Columns[AddressTypeID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].ExternalColumns[AddressTypeID]"
+                      lineageId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].Columns[AddressTypeID]"
+                      name="AddressTypeID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].Columns[AddressLine1]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].ExternalColumns[AddressLine1]"
+                      length="60"
+                      lineageId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].Columns[AddressLine1]"
+                      name="AddressLine1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].Columns[AddressLine2]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].ExternalColumns[AddressLine2]"
+                      length="60"
+                      lineageId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].Columns[AddressLine2]"
+                      name="AddressLine2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].Columns[City]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].ExternalColumns[City]"
+                      length="30"
+                      lineageId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].Columns[City]"
+                      name="City"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].Columns[PostalCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].ExternalColumns[PostalCode]"
+                      length="15"
+                      lineageId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].Columns[PostalCode]"
+                      name="PostalCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].Columns[AddressTypeName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].ExternalColumns[AddressTypeName]"
+                      length="50"
+                      lineageId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].Columns[AddressTypeName]"
+                      name="AddressTypeName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].Columns[PhoneNumber]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].ExternalColumns[PhoneNumber]"
+                      length="25"
+                      lineageId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].Columns[PhoneNumber]"
+                      name="PhoneNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].Columns[PhoneNumberTypeID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].ExternalColumns[PhoneNumberTypeID]"
+                      lineageId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].Columns[PhoneNumberTypeID]"
+                      name="PhoneNumberTypeID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].Columns[PhoneNumberTypeName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].ExternalColumns[PhoneNumberTypeName]"
+                      length="50"
+                      lineageId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].Columns[PhoneNumberTypeName]"
+                      name="PhoneNumberTypeName"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].ExternalColumns[BusinessEntityID]"
+                      dataType="i4"
+                      name="BusinessEntityID" />
+                    <externalMetadataColumn
+                      refId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].ExternalColumns[Title]"
+                      dataType="wstr"
+                      length="8"
+                      name="Title" />
+                    <externalMetadataColumn
+                      refId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].ExternalColumns[PersonType]"
+                      dataType="wstr"
+                      length="2"
+                      name="PersonType" />
+                    <externalMetadataColumn
+                      refId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].ExternalColumns[FullName]"
+                      dataType="wstr"
+                      length="152"
+                      name="FullName" />
+                    <externalMetadataColumn
+                      refId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].ExternalColumns[AddressID]"
+                      dataType="i4"
+                      name="AddressID" />
+                    <externalMetadataColumn
+                      refId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].ExternalColumns[AddressTypeID]"
+                      dataType="i4"
+                      name="AddressTypeID" />
+                    <externalMetadataColumn
+                      refId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].ExternalColumns[AddressLine1]"
+                      dataType="wstr"
+                      length="60"
+                      name="AddressLine1" />
+                    <externalMetadataColumn
+                      refId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].ExternalColumns[AddressLine2]"
+                      dataType="wstr"
+                      length="60"
+                      name="AddressLine2" />
+                    <externalMetadataColumn
+                      refId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].ExternalColumns[City]"
+                      dataType="wstr"
+                      length="30"
+                      name="City" />
+                    <externalMetadataColumn
+                      refId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].ExternalColumns[PostalCode]"
+                      dataType="wstr"
+                      length="15"
+                      name="PostalCode" />
+                    <externalMetadataColumn
+                      refId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].ExternalColumns[AddressTypeName]"
+                      dataType="wstr"
+                      length="50"
+                      name="AddressTypeName" />
+                    <externalMetadataColumn
+                      refId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].ExternalColumns[PhoneNumber]"
+                      dataType="wstr"
+                      length="25"
+                      name="PhoneNumber" />
+                    <externalMetadataColumn
+                      refId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].ExternalColumns[PhoneNumberTypeID]"
+                      dataType="i4"
+                      name="PhoneNumberTypeID" />
+                    <externalMetadataColumn
+                      refId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output].ExternalColumns[PhoneNumberTypeName]"
+                      dataType="wstr"
+                      length="50"
+                      name="PhoneNumberTypeName" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Error Output].Columns[BusinessEntityID]"
+                      dataType="i4"
+                      lineageId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Error Output].Columns[BusinessEntityID]"
+                      name="BusinessEntityID" />
+                    <outputColumn
+                      refId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Error Output].Columns[Title]"
+                      dataType="wstr"
+                      length="8"
+                      lineageId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Error Output].Columns[Title]"
+                      name="Title" />
+                    <outputColumn
+                      refId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Error Output].Columns[PersonType]"
+                      dataType="wstr"
+                      length="2"
+                      lineageId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Error Output].Columns[PersonType]"
+                      name="PersonType" />
+                    <outputColumn
+                      refId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Error Output].Columns[FullName]"
+                      dataType="wstr"
+                      length="152"
+                      lineageId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Error Output].Columns[FullName]"
+                      name="FullName" />
+                    <outputColumn
+                      refId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Error Output].Columns[AddressID]"
+                      dataType="i4"
+                      lineageId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Error Output].Columns[AddressID]"
+                      name="AddressID" />
+                    <outputColumn
+                      refId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Error Output].Columns[AddressTypeID]"
+                      dataType="i4"
+                      lineageId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Error Output].Columns[AddressTypeID]"
+                      name="AddressTypeID" />
+                    <outputColumn
+                      refId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Error Output].Columns[AddressLine1]"
+                      dataType="wstr"
+                      length="60"
+                      lineageId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Error Output].Columns[AddressLine1]"
+                      name="AddressLine1" />
+                    <outputColumn
+                      refId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Error Output].Columns[AddressLine2]"
+                      dataType="wstr"
+                      length="60"
+                      lineageId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Error Output].Columns[AddressLine2]"
+                      name="AddressLine2" />
+                    <outputColumn
+                      refId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Error Output].Columns[City]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Error Output].Columns[City]"
+                      name="City" />
+                    <outputColumn
+                      refId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Error Output].Columns[PostalCode]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Error Output].Columns[PostalCode]"
+                      name="PostalCode" />
+                    <outputColumn
+                      refId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Error Output].Columns[AddressTypeName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Error Output].Columns[AddressTypeName]"
+                      name="AddressTypeName" />
+                    <outputColumn
+                      refId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Error Output].Columns[PhoneNumber]"
+                      dataType="wstr"
+                      length="25"
+                      lineageId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Error Output].Columns[PhoneNumber]"
+                      name="PhoneNumber" />
+                    <outputColumn
+                      refId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Error Output].Columns[PhoneNumberTypeID]"
+                      dataType="i4"
+                      lineageId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Error Output].Columns[PhoneNumberTypeID]"
+                      name="PhoneNumberTypeID" />
+                    <outputColumn
+                      refId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Error Output].Columns[PhoneNumberTypeName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Error Output].Columns[PhoneNumberTypeName]"
+                      name="PhoneNumberTypeName" />
+                    <outputColumn
+                      refId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DWH Data Flow.Paths[OLE DB Source Output]"
+              endId="Package\DWH Data Flow\Person_dim_DWH.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\DWH Data Flow\Person_dim_STG.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\DWH Data Flow"
+          TopLeft="63.3333298729527,63.2666662267181" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DWH Data Flow">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="160.8,41.6"
+          Id="Package\DWH Data Flow\Person_dim_STG"
+          TopLeft="54.9999969949327,26.8666664798393" />
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\DWH Data Flow\Person_dim_DWH"
+          TopLeft="52.4999971315265,118.733332507676" />
+        <EdgeLayout
+          Id="Package\DWH Data Flow.Paths[OLE DB Source Output]"
+          TopLeft="135.14999706323,68.4666664798392">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,50.2666660278373"
+              Start="0,0"
+              End="0,42.7666660278373">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.7666660278373" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DWH Data Flow\Person_dim_STG">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DWH Data Flow\Person_dim_DWH">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
